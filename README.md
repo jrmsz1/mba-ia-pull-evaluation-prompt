@@ -64,6 +64,9 @@ Critérios de Aceitação:
 
 ## Resultados Finais
 
+### Github
+🔗 **Link público:** https://github.com/jrmsz1/mba-ia-pull-evaluation-prompt
+
 ### Dashboard LangSmith
 🔗 **Link público:** https://smith.langchain.com/o/d344b043-76f1-4948-9014-24fe3aea121a/projects/p/42be6e56-12db-419b-b5c0-b60a1b80d86a
 
