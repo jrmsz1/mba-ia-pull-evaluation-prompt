@@ -260,6 +260,54 @@ mba-ia-pull-evaluation-prompt/
 ```
 
 ---
+---
+
+## Extra — Relatório de Custos com Análise de ROI
+
+### O que é?
+
+Script adicional que gera um relatório completo comparando o **custo real** do
+Prompt v1 vs v2, considerando duas dimensões que normalmente são ignoradas:
+
+- 🤖 **Custo de API** — o que você paga pela IA processar cada requisição
+- 👤 **Custo Humano** — o tempo do PM corrigindo User Stories mal geradas
+
+### Como executar
+```bash
+python src/cost_report.py
+```
+
+O relatório é salvo automaticamente em `reports/cost_report.md`.
+
+### O que o relatório entrega
+
+| Seção | Conteúdo |
+|---|---|
+| Resumo Executivo | Comparativo v1 vs v2 em qualidade, tokens e custo |
+| Custo por Requisição | API + humano detalhados com fórmulas explicadas |
+| Retrabalho Humano | Cálculo do custo do PM corrigindo User Stories ruins |
+| Projeções por Volume | 100, 1k, 10k, 100k e 1M requisições/mês |
+| Análise de ROI | Payback do investimento na otimização por cenário |
+| Comparativo de Modelos | Gemini 2.5, Gemini 2.0, GPT-4o Mini, GPT-4o |
+
+### Exemplo de saída no terminal
+```
+  v1: $0.00012 (IA) + $0.02335 (pessoa) = $0.02347 total
+  v2: $0.00048 (IA) + $0.00334 (pessoa) = $0.00382 total
+  Economia: $0.01965 por req (84% mais barato)
+```
+
+### Premissas do cálculo humano
+
+- Salário PM Sênior: R$ 12.000/mês (custo empresa: R$ 20.400/mês com encargos)
+- Prompt v1: 70% das User Stories precisam correção — 15 min cada
+- Prompt v2: 10% precisam ajuste fino — 3 min cada
+- Câmbio: R$ 5,70/USD
+
+> Os valores podem ser ajustados diretamente no arquivo `src/cost_report.py`
+> na seção `HUMAN_COST`.
+
+---
 
 ## Tecnologias Utilizadas
 
